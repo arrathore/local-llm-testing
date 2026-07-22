@@ -1,0 +1,6 @@
+Prompt: Create the frontend for a web app that converts WAV files to MP3
+Time: N/A
+
+Notes:
+Ran in circles. Didn't seem to be able to separate the system prompt
+from my request. Didn't use tools.
