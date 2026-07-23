@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV to MP3 Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .download-link {
+            margin-top: 20px;
+        }
+        .download-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .download-link a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>WAV to MP3 Converter</h2>
+        <input type="file" id="wavFile" accept=".wav" />
+        <button onclick="convertWavToMp3()">Convert to MP3</button>
+        <div class="status" id="statusMessage"></div>
+        <div class="download-link" id="downloadSection" style="display:none;">
+            <p>Your MP3 file is ready:</p>
+            <a href="#" id="downloadLink">Download MP3</a>
+        </div>
+    </div>
+
+    <script>
+        const wavFileInput = document.getElementById('wavFile');
+        const statusMessage = document.getElementById('statusMessage');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadLink = document.getElementById('downloadLink');
+        const convertButton = document.querySelector('button');
+
+        convertButton.addEventListener('click', () => {
+            const file = wavFileInput.files[0];
+            if (!file) {
+                statusMessage.textContent = 'Please select a WAV file first';
+                return;
+            }
+
+            if (!file.name.endsWith('.wav')) {
+                statusMessage.textContent = 'Please select a valid WAV file';
+                return;
+            }
+
+            statusMessage.textContent = 'Uploading file...';
+            convertButton.disabled = true;
+
+            // Simulate file upload and conversion
+            setTimeout(() => {
+                statusMessage.textContent = 'Conversion complete!';
+                downloadLink.href = 'converted.mp3';
+                downloadLink.textContent = 'Download MP3';
+                downloadSection.style.display = 'block';
+                convertButton.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
