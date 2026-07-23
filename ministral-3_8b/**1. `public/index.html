@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV to MP3 Converter</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 WAV to MP3 Converter</h1>
+
+        <div class="drop-area" id="dropArea">
+            <p>Drag & drop your WAV file here or click to browse</p>
+            <input type="file" id="fileInput" accept=".wav" />
+        </div>
+
+        <button id="convertBtn" disabled>Convert to MP3</button>
+        <progress id="progressBar" class="hidden"></progress>
+        <span id="statusText">Ready</span>
+
+        <div class="output-section">
+            <h2>Download Your MP3:</h2>
+            <a id="downloadLink" href="#" download class="hidden">MP3 File</a>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

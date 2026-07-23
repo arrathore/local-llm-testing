@@ -1,0 +1,7 @@
+Prompt: Create the frontend for a web app that converts WAV files to MP3.
+Time: 1:00:03.73
+
+Notes:
+- split everything up
+- attempted to create a good project structure
+- over an hour!
