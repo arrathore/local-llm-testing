@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV to MP3 Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .upload-section {
+            border: 2px dashed #ccc;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .upload-section:hover {
+            background-color: #f9f9ff;
+            border-color: #667eea;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .custom-file-upload:hover {
+            transform: scale(1.05);
+        }
+
+        #file-name-display {
+            margin-top: 1rem;
+            color: #667eea;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        .status-section {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        #file-name-display {
+            color: white;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        .status-text {
+            display: block;
+            margin-top: 0.3rem;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        #file-name-display {
+            color: white !important;
+        }
+
+        button#convert-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button#convert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        #file-name-display {
+            color: white !important;
+        }
+
+        .result-section {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            background-color: #f9f9ff;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        #file-name-display {
+            color: white !important;
+        }
+
+        .error-message {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #c62828;
+        }
+
+        .error-message strong {
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 WAV to MP3 Converter</h1>
+        
+        <div id="upload-section" class="upload-section">
+            <label for="file-upload" class="custom-file-upload">
+                📁 Select a WAV File
+            </label>
+            <input type="file" id="file-upload" accept=".wav,.mp3,wav,webm,aac,m4a">
+        </div>
+
+        <div id="status-section" style="display: none;">
+            <span class="status-text"></span>
+        </div>
+
+        <button id="convert-btn">Convert to MP3</button>
+
+        <div id="result-section" class="result-section">
+            <p>Your file is ready!</p>
+            <a href="#" download="converted-file.mp3" class="download-btn">Download File</a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
